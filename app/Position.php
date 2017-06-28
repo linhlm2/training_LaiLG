@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Position extends Model
 {
     //
-    protected $table = 'chucvu';
+    protected $table = 'position';
+    public $timestamps = false;
 
     public function staff()
     {
-    	return $this->hasMany('App\Staff','id_cv','ma_chucvu');
+    	return $this->hasMany('App\Staff','id','id_posotion');
     }
 }

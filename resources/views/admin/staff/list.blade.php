@@ -5,11 +5,16 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">User
+                        <h1 class="page-header">Nhân viên
                             <small>Danh sách</small>
                         </h1>
                     </div>
                     <!-- /.col-lg-12 -->
+                    @if(session('notification'))
+                    <div class="alert alert-success">
+                        {{session('notification')}}
+                    </div>
+                    @endif
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                         <thead>
                             <tr align="center">
@@ -25,9 +30,10 @@
                         </thead>
                         <tbody>
                         @foreach($staff as $st)
+  
                             <tr class="odd gradeX" align="center">
-                                <td>{{$st->id_nv}}</td>
-                                <td>{{$st->hoten}}</td>
+                                <td>{{$st->id}}</td>
+                                <td>{{$st->name}}</td>
                                 <td>{{$st->email}}</td>
                                 <td>
                                 @if($st->is_admin == 1)
@@ -36,10 +42,10 @@
                                 {{'User'}}
                                 @endif
                                 </td>
-                                <td>{{$st->department->ten_phongban}}</td>
-                                <td>{{$st->position->ten_chucvu}}</td>
-                                <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="#"> Delete</a></td>
-                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="#">Edit</a></td>
+                                <td>{{$st->department->name_department}}</td>
+                                <td>{{$st->position->name_position}}</td>
+                                <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/staff/delete/{{$st->id}}"> Delete</a></td>
+                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/staff/edit/{{$st->id}}">Edit</a></td>
                             </tr>
                         @endforeach
                         </tbody>

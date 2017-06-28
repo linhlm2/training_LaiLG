@@ -14,12 +14,12 @@ class CreateDepartment extends Migration
     public function up()
     {
         //
-        Schema::create('phongban', function (Blueprint $table)
+        Schema::create('department', function (Blueprint $table)
                 {
-                $table->increments('id_pb');
-                $table->string('ten_phongban',50)->unique();
-                $table->string('diachipb',80);
-                $table->string('sdtpb',20);
+                $table->increments('id');
+                $table->string('name_department',50)->unique();
+                $table->string('address',80);
+                $table->string('phone',20);
                 });
     }
 
@@ -31,6 +31,6 @@ class CreateDepartment extends Migration
     public function down()
     {
         //
-        Schema::drop('phongban');
+        Schema::drop('department');
     }
 }

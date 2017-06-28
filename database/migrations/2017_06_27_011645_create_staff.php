@@ -12,17 +12,17 @@ class CreateStaff extends Migration
      */
     public function up()
     {
-        Schema::create('nhanvien',function(Blueprint $table)
+        Schema::create('staff',function(Blueprint $table)
                 {
-                $table->increments('id_nv');
-                $table->string('hoten',30);
-                $table->time('ngaysinh');
-                $table->string('quequan',80)->nullable();
-                $table->string('dantoc',20)->nullable();
-                $table->integer('gioitinh')->nullable();
-                $table->string('sdt',20)->nullable();
-                $table->integer('ma_phongban')->unsigned();
-                $table->integer('ma_chucvu')->unsigned();
+                $table->increments('id');
+                $table->string('name',30);
+                $table->time('birthday');
+                $table->string('birthplace',80)->nullable();
+                $table->string('nation',20)->nullable();
+                $table->integer('sex')->nullable();
+                $table->string('phone',20)->nullable();
+                $table->integer('id_department')->unsigned();
+                $table->integer('id_position')->unsigned();
                 $table->string('password',80);
                 $table->string('email',30)->unique();
                 $table->integer('is_admin');
@@ -40,6 +40,6 @@ class CreateStaff extends Migration
      */
     public function down()
     {
-        Schema::drop('nhanvien');
+        Schema::drop('staff');
     }
 }

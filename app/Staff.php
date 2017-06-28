@@ -6,14 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Staff extends Model
 {
-    protected $table = 'nhanvien';
+    protected $table = 'staff';
 
     public function department()
     {
-    	return $this->belongsTo('App\Department','ma_phongban','id_pb');
+    	return $this->belongsTo('App\Department','id_department','id');
     }
     public function position()
     {
-    	return $this->belongsTo('App\Position','ma_chucvu','id_cv');
+    	return $this->belongsTo('App\Position','id_position','id');
     }
 }

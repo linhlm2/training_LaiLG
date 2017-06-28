@@ -13,68 +13,45 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href=""><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Thể Loại<span class="fa arrow"></span></a>
+                            <a href=""><i class="fa fa-bar-chart-o fa-fw"></i> Nhân viên<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="">Danh sách</a>
+                                    <a href="admin/staff/list">Danh sách</a>
                                 </li>
                                 <li>
-                                    <a href="">Thêm</a>
+                                    <a href="admin/staff/add">Thêm</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Loại Tin<span class="fa arrow"></span></a>
+                            <a href=""><i class="fa fa-bar-chart-o fa-fw"></i> Phòng ban<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="">Danh sách</a>
+                                    <a href="admin/department/list">Danh sách</a>
                                 </li>
                                 <li>
-                                    <a href="">Thêm</a>
+                                    <a href="admin/department/add">Thêm</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Tin Tức<span class="fa arrow"></span></a>
+                            <a href=""><i class="fa fa-bar-chart-o fa-fw"></i> Chức vụ<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="">Danh sách</a>
+                                    <a href="admin/position/list">Danh sách</a>
                                 </li>
                                 <li>
-                                    <a href="">Thêm</a>
+                                    <a href="admin/position/add">Thêm</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Slide<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="">Danh sách</a>
-                                </li>
-                                <li>
-                                    <a href="">Thêm</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-users fa-fw"></i> User<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="">Danh sách</a>
-                                </li>
-                                <li>
-                                    <a href="">Thêm</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
+              
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->

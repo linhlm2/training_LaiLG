@@ -14,10 +14,10 @@ class CreatePosition extends Migration
     public function up()
     {
         //
-        Schema::create('chucvu',function(Blueprint $table)
+        Schema::create('position',function(Blueprint $table)
                 {
-                $table->increments('id_cv');
-                $table->string('ten_chucvu',30)->unique();
+                $table->increments('id');
+                $table->string('name_position',30)->unique();
                 });
     }
 
@@ -28,6 +28,6 @@ class CreatePosition extends Migration
      */
     public function down()
     {
-        Schema::drop('chucvu');
+        Schema::drop('position');
     }
 }
