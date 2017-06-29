@@ -14,6 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::group(['prefix'=>'admin'],function(){
 
 	Route::group(['prefix'=>'staff'],function(){
@@ -53,4 +54,10 @@ Route::group(['prefix'=>'admin'],function(){
 		 Route::get('delete/{id}','DepartmentController@getDelete');
 	});
 
+});
+
+Route::group(['prefix'=>'staff'],function(){
+    Route::get('view/{id}','StaffController@getView');
+    Route::get('edit/{id}','StaffController@getStaffEdit');
+    Route::post('edit/{id}','StaffController@postStaffEdit');
 });

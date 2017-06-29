@@ -13,6 +13,7 @@ class DepartmentController extends Controller
         return view('admin.department.list',['department'=>$department]);
         
     }
+    
     public function getEdit($id)
     {   
         $department = Department::find($id);
@@ -45,10 +46,12 @@ class DepartmentController extends Controller
         
         return redirect('admin/department/edit/'.$id)->with('notification','Edit completed');
     }
+    
     public function getAdd()
     {
         return view('admin.department.add');
     }
+    
     public function postAdd(Request $request)
     {
         $this->validate($request,
@@ -74,6 +77,7 @@ class DepartmentController extends Controller
         $department->save();
         return redirect('admin/department/list')->with('notification','Add completed');
     }
+    
     public function getDelete($id)
     {
         $department = Department::find($id);
