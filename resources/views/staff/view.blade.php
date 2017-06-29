@@ -93,10 +93,13 @@
                             @foreach($listStaff as $list)
                             <tr class="odd gradeX" align="center">
                                 <td>{{$list->id}}</td>
-                                <td>{{$list->name}}</td>
+                                <td><a href="staff/view/{{$list->id}}">{{$list->name}}</a></td>
                                 <td>{{$list->birthday}}</td>
                                 <td>{{$list->address}}</td>
-                                <td>{{$list->sex}}</td>
+                                <td>@if($list->sex == 0){{"Nữ"}}
+                                    @else {{"Nam"}}
+                                    @endif
+                                </td>
                                 <td>{{$list->phone}}</td>
                                 <td>{{$list->email}}</td>
                                 <td>{{$list->position->name_position}}</td>
