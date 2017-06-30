@@ -19,6 +19,10 @@ Route::get('admin/login','LoginController@getLoginAdmin');
 Route::post('admin/login','LoginController@postLoginAdmin');
 Route::get('admin/logout','LoginController@getLogoutAdmin');
 
+Route::get('staff/login','LoginController@getLoginStaff');
+Route::post('staff/login','LoginController@postLoginStaff');
+Route::get('staff/logout','LoginController@getLogoutStaff');
+
 
 Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function(){
 
@@ -62,7 +66,7 @@ Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function(){
 
 });
 
-Route::group(['prefix'=>'staff'],function(){
+Route::group(['prefix'=>'staff','middleware'=>'staffLogin'],function(){
     Route::get('view/{id}','StaffController@getView');
     Route::get('edit/{id}','StaffController@getStaffEdit');
     Route::post('edit/{id}','StaffController@postStaffEdit');

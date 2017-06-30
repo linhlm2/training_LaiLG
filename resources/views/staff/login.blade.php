@@ -28,7 +28,7 @@
             <div class="col-md-4 col-md-offset-4">
                 <div class="login-panel panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Admin Please Sign In</h3>
+                        <h3 class="panel-title">Staff Please Sign In</h3>
                     </div>
                     <div class="panel-body">
                         @if(count($errors) >0 )
@@ -44,7 +44,7 @@
                         </div>
                         
                         @endif 
-                        <form role="form" action="admin/login" method="POST">
+                        <form role="form" action="staff/login" method="POST">
                             <input type="hidden" name="_token" value="{{csrf_token()}}" />
                             <fieldset>
                                 <div class="form-group">

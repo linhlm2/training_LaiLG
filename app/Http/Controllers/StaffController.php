@@ -154,7 +154,7 @@ class StaffController extends Controller
                         'passwordAgain.required'=>'Please enter password',
                         'password.same'=>'Password entered incorrectly'
                     ]);
-            $staff->password = $request->password;
+            $staff->password = bcrypt($request->password);
         }
         $staff ->update();
         return redirect('staff/edit/'.$id)->with('notification','Edit completed');
