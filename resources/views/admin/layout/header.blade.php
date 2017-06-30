@@ -6,7 +6,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Admin Area</a>
+                <a class="navbar-brand">Admin Area</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -18,14 +18,14 @@
                     </a>
 
                     <ul class="dropdown-menu dropdown-user">
-                 
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                        </li>
+                        @if(Auth::check())
+                        <li><i class="fa fa-user fa-fw"></i>{{Auth::user()->name}}</li>
+                        <li><a href="admin/staff/edit/{{Auth::user()->id}}"><i class="fa fa-gear fa-fw"></i>Settings</a></li>
+                        <li><a href="changepassword/{{Auth::id()}}"><i class="fa fa-gear fa-fw"></i>Changepass</a></li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="admin/logout"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
                         </li>
+                        @endif
                     </ul>
                     <!-- /.dropdown-user -->
                 </li>
