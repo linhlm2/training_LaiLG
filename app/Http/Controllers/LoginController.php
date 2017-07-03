@@ -13,6 +13,7 @@ class LoginController extends Controller
     {
         return view('admin.login');
     }
+
     public function postLoginAdmin(Request $request)
     {
         $this->validate($request,
@@ -28,11 +29,9 @@ class LoginController extends Controller
                 ]);
         if(Auth::attempt(['email'=>$request->email,'password'=>$request->password,'active'=>1])) {
             return redirect('admin/staff/list');            
-        }
-        elseif(Auth::attempt(['email'=>$request->email,'password'=>$request->password,'active'=> 0])) {
+        }elseif(Auth::attempt(['email'=>$request->email,'password'=>$request->password,'active'=> 0])) {
             return redirect('changepassword/'.Auth::id());
-        }
-        else {
+        }else {
             return redirect('admin/login')->with('notification','Login failed');
         }
     }
