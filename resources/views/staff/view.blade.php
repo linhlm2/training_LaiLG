@@ -23,7 +23,7 @@
                         {{session('notification')}}
                     </div>
                     @endif  
-                        <form action="" method="POST">
+                        <form action="staff/edit/{{$staff->id}}" method="POST">
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
                             <div class="form-group">
                                 <label>Họ tên</label>
@@ -43,11 +43,15 @@
                             </div>
                             <div class="form-group">
                                 <label>Giới tính</label>
-                                <input class="form-control" name="sex" 
-                                    @if($staff->sex == 0 ) value ="Nữ"
-                                    @else value = "Nam"
-                                    @endif
-                                        readonly=""/>
+                                @if($staff->sex == 0 )
+                                <div class="form-control" name="sex" 
+                                    value ="0"
+                                    readonly=""/>Nữ</div>
+                                @else
+                                <div class="form-control" name="sex" 
+                                    value ="1"
+                                    readonly=""/>Nam</div>
+                                @endif
                             </div>
                             <div class="form-group">
                                 <label>Số điện thoại</label>

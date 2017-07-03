@@ -11,7 +11,6 @@ class DepartmentController extends Controller
     {
         $department = Department::all();
         return view('admin.department.list',['department'=>$department]);
-        
     }
     
     public function getEdit($id)
@@ -43,7 +42,6 @@ class DepartmentController extends Controller
         $department->address = $request->address;
         $department->phone = $request->phone;
         $department->update();
-        
         return redirect('admin/department/edit/'.$id)->with('notification','Edit completed');
     }
     

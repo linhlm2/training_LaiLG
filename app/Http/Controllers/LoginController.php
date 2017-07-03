@@ -26,17 +26,13 @@ class LoginController extends Controller
                     'password.min'=>'Password length is greater than 3 and less than 32',
                     'password.max'=>'Password length is greater than 3 and less than 32',
                 ]);
-        if(Auth::attempt(['email'=>$request->email,'password'=>$request->password,'active'=>1]))
-        {
+        if(Auth::attempt(['email'=>$request->email,'password'=>$request->password,'active'=>1])) {
             return redirect('admin/staff/list');            
         }
-        elseif(Auth::attempt(['email'=>$request->email,'password'=>$request->password,'active'=> 0]))
-        {
-           
+        elseif(Auth::attempt(['email'=>$request->email,'password'=>$request->password,'active'=> 0])) {
             return redirect('changepassword/'.Auth::id());
         }
-        else
-        {
+        else {
             return redirect('admin/login')->with('notification','Login failed');
         }
     }
@@ -79,7 +75,6 @@ class LoginController extends Controller
         {
             return redirect('staff/view/'.$user->id)->with('notification','Change password completed');
         }
-        
     }
     
     public function getLoginStaff()
@@ -100,17 +95,13 @@ class LoginController extends Controller
                     'password.min'=>'Password length is greater than 3 and less than 32',
                     'password.max'=>'Password length is greater than 3 and less than 32',
                 ]);
-        if(Auth::attempt(['email'=>$request->email,'password'=>$request->password,'active'=>1]))
-        {
+        if(Auth::attempt(['email'=>$request->email,'password'=>$request->password,'active'=>1])) {
             return redirect('staff/view/'.Auth::id());            
         }
-        elseif(Auth::attempt(['email'=>$request->email,'password'=>$request->password,'active'=> 0]))
-        {
-           
+        elseif(Auth::attempt(['email'=>$request->email,'password'=>$request->password,'active'=> 0])) {
             return redirect('changepassword/'.Auth::id());
         }
-        else
-        {
+        else {
             return redirect('staff/login')->with('notification','Login failed');
         }
     }

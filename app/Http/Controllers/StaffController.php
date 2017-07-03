@@ -5,6 +5,9 @@ use Illuminate\Http\Request;
 use App\Staff;
 use App\Department;
 use App\Position;
+use Illuminate\Mail\Mailable;
+use Mail;
+use Illuminate\Support\Facades\Auth;
 
 class StaffController extends Controller
 {
@@ -12,7 +15,6 @@ class StaffController extends Controller
     {
         $staff = Staff::all();
     	return view('admin.staff.list',['staff' => $staff]);
-
     }
     
     public function getEdit($id)
@@ -21,7 +23,6 @@ class StaffController extends Controller
         $department = Department::all();
         $position = Position::all();
         return view('admin.staff.edit',['staff'=>$staff,'department'=>$department,'position'=>$position]);
-
     }
     
     public function postEdit(Request $request,$id)
@@ -41,8 +42,7 @@ class StaffController extends Controller
         $staff->id_position = $request->position;
         $staff->is_admin = $request->authority;
         $staff->active = $request->active;
-        if($request->changePassword=='on')
-        {
+        if($request->changePassword=='on'){
             $this->validate($request,
                     [
                         'password'=>'required|min:3|max:32',
@@ -95,6 +95,12 @@ class StaffController extends Controller
         $staff->id_position = $request->position;
         $staff->is_admin = $request->authority;
         $staff->active = $request->active;
+        //send mail
+        $data = ['email'=>$request->email,'password'=>$request->password,'name'=>$request->name];
+        Mail::send(['text'=>'mail'],['data'=> $data],function($message) use ($data){
+            $message->to($data['email'],$data['name'])->subject('Create account');
+            $message->from('lailg.hedspi@gmail.com','Admin'); 
+        });
         $staff->save();
         return redirect('admin/staff/add')->with('notification','You have successfully added the user');
     }
@@ -111,17 +117,22 @@ class StaffController extends Controller
         $staff = Staff::find($id);
         $position = Position::find($staff->id_position);
         if($position->name_position == "Trưởng phòng"){
-            $listStaff = Staff::where('id_department',$staff->id_department)->where('id_position','!=',$staff->id_position)->get();
-            return view('staff.view',['staff'=>$staff,'listStaff'=>$listStaff]);
+        $listStaff = Staff::where('id_department',$staff->id_department)->where('id_position','!=',$staff->id_position)->get();
+        return view('staff.view',['staff'=>$staff,'listStaff'=>$listStaff]);
         }
-     
-     return view('staff.view',['staff'=>$staff]);
+        return view('staff.view',['staff'=>$staff]);
     }
     
     public function getStaffEdit($id)
     {
-        $staff= Staff::find($id);
-        return view('staff.edit',['staff'=>$staff]);
+        if(Auth::id() == $id){
+            $staff= Staff::find($id);
+            return view('staff.edit',['staff'=>$staff]);
+        }
+        else{
+            Auth::logout();
+            return redirect('staff/login');
+        }
     }
     
     public function postStaffEdit(Request $request,$id)
@@ -158,6 +169,5 @@ class StaffController extends Controller
         }
         $staff ->update();
         return redirect('staff/edit/'.$id)->with('notification','Edit completed');
-    }
-    
+    } 
 }

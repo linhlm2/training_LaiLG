@@ -11,14 +11,12 @@ class PositionController extends Controller
     {
         $position = Position::all();
         return view('admin.position.list',['position'=>$position]);
-
     }
     
     public function getEdit($id)
     {   
         $position = Position::find($id);
         return view('admin.position.edit',['position'=>$position]);
-
     }
     
     public function postEdit(Request $request,$id)
@@ -34,8 +32,7 @@ class PositionController extends Controller
         $position = Position::find($id);
         $position->name_position = $request->name;
         $position->update();
-        return redirect('admin/position/list')->with('notification','Edit completed');
-        
+        return redirect('admin/position/list')->with('notification','Edit completed');   
     }
     
     public function getAdd()
