@@ -19,9 +19,12 @@ Route::get('admin/login','LoginController@getLoginAdmin');
 Route::post('admin/login','LoginController@postLoginAdmin');
 Route::get('admin/logout','LoginController@getLogoutAdmin');
 
-Route::get('staff/login','LoginController@getLoginStaff');
+Route::get('staff/login','LoginController@getLoginStaff')->name('staffLogin');
 Route::post('staff/login','LoginController@postLoginStaff');
 Route::get('staff/logout','LoginController@getLogoutStaff');
+
+Route::post('password/email', 'Auth\ForgotPasswordController@getResetToken');
+Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
 
 Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function(){
@@ -73,3 +76,7 @@ Route::group(['prefix'=>'staff','middleware'=>'staffLogin'],function(){
 });
 Route::get('changepassword/{id}','LoginController@getChangePassword');
 Route::post('changepassword/{id}','LoginController@postChangePassword');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
