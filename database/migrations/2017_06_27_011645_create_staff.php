@@ -16,13 +16,13 @@ class CreateStaff extends Migration
                 {
                 $table->increments('id');
                 $table->string('name',30);
-                $table->time('birthday');
-                $table->string('birthplace',80)->nullable();
-                $table->string('nation',20)->nullable();
+                $table->date('birthday')->nullable();
+                $table->string('address',80)->nullable();
+                $table->string('country',20)->nullable();
                 $table->integer('sex')->nullable();
                 $table->string('phone',20)->nullable();
-                $table->integer('id_department')->unsigned();
-                $table->integer('id_position')->unsigned();
+                $table->integer('id_department')->unsigned()->nullable();
+                $table->integer('id_position')->unsigned()->nullable();
                 $table->string('password',80);
                 $table->string('email',30)->unique();
                 $table->integer('is_admin');

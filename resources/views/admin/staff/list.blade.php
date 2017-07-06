@@ -42,8 +42,20 @@
                                 {{'User'}}
                                 @endif
                                 </td>
-                                <td>{{$st->department->name_department}}</td>
-                                <td>{{$st->position->name_position}}</td>
+                                <td>
+                                @if(!empty($st->department))
+                                    {{$st->department->name_department}}
+                                @else
+                                    {{''}}
+                                @endif
+                                </td>
+                                <td>
+                                    @if(!empty($st->position))
+                                    {{$st->position->name_position}}
+                                @else
+                                    {{''}}
+                                @endif
+                                </td>
                                 <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/staff/delete/{{$st->id}}"> Delete</a></td>
                                 <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/staff/edit/{{$st->id}}">Edit</a></td>
                             </tr>

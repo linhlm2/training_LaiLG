@@ -9,11 +9,17 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
+    /*
+     * Admin get view for login
+     */
     public function getLoginAdmin()
     {
         return view('admin.login');
     }
-
+    
+    /*
+     * Admin request login
+     */
     public function postLoginAdmin(Request $request)
     {
         $this->validate($request,
@@ -36,18 +42,27 @@ class LoginController extends Controller
         }
     }
     
+    /*
+     * Admin logout
+     */
     public function getLogoutAdmin()
     {
         Auth::logout();
         return redirect('admin/login');
     }
     
+    /*
+     * Get user by id for change password
+     */
     public function getChangePassword($id)
     {
         $user = Staff::find($id);
         return view('changepassword');
     }
     
+    /*
+     * Change password by user id
+     */
     public function postChangePassword(Request $request,$id)
     {
         $user = Staff::find($id);
@@ -76,11 +91,17 @@ class LoginController extends Controller
         }
     }
     
+    /*
+     * user get view login
+     */
     public function getLoginStaff()
     {
         return view('staff.login');
     }
     
+    /*
+     * User login
+     */
     public function postLoginStaff(Request $request)
     {
         $this->validate($request,
@@ -105,6 +126,9 @@ class LoginController extends Controller
         }
     }
     
+    /*
+     * User logout
+     */
     public function getLogoutStaff()
     {
         Auth::logout();

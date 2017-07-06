@@ -63,17 +63,30 @@
                             </div>
                             <div class="form-group">
                                 <label>Phòng</label>
-                                <input  class="form-control" name="department"  value="{{$staff->department->name_department}}" readonly="" />
+                                <input  class="form-control" name="department"
+                                        @if(!empty($staff->department))
+                                        value="{{$staff->department->name_department}}"
+                                        @else
+                                        value ="{{' '}}"
+                                        @endif
+                                        readonly="" />
                             </div>
                             <div class="form-group">
                                 <label>Chức vụ</label>
-                                <input  class="form-control" name="position"  value="{{$staff->position->name_position}}" readonly="" />
+                                <input  class="form-control" name="position"  
+                                        @if(!empty($staff->position))
+                                        value="{{$staff->position->name_position}}"
+                                        @else
+                                        value ="{{' '}}"
+                                        @endif 
+                                        readonly="" />
                             </div>
                         <button class="btn btn-default"><a href="staff/edit/{{$staff->id}}">Edit</a></button>
                         <form>
                     </div>
                 </div>
                 <!-- /.row -->
+                @if(!empty($staff->position))
                 @if($staff->position->name_position == "Trưởng phòng")
                 <div class="col-lg-12">
                         <h1 class="page-header">Cấp dưới
@@ -111,6 +124,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                @endif
                 @endif
             </div>
             <!-- /.container-fluid -->

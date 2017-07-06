@@ -7,18 +7,27 @@ use App\Department;
 
 class DepartmentController extends Controller
 {
+    /*
+     * Admin get all department
+     */
     public function getList()
     {
         $department = Department::all();
         return view('admin.department.list',['department'=>$department]);
     }
     
+    /*
+     * Admin get department by id for edit
+     */
     public function getEdit($id)
     {   
         $department = Department::find($id);
         return view('admin.department.edit',['department'=>$department]);
     }
     
+    /*
+     * Admin edit department by id
+     */
     public function postEdit(Request $request,$id)
     {
     	$this->validate($request,
@@ -45,11 +54,17 @@ class DepartmentController extends Controller
         return redirect('admin/department/edit/'.$id)->with('notification','Edit completed');
     }
     
+    /*
+     * Admin get view for add department
+     */
     public function getAdd()
     {
         return view('admin.department.add');
     }
     
+    /*
+     * Admin add department
+     */
     public function postAdd(Request $request)
     {
         $this->validate($request,
@@ -76,6 +91,9 @@ class DepartmentController extends Controller
         return redirect('admin/department/list')->with('notification','Add completed');
     }
     
+    /*
+     * Admin delete department by id
+     */
     public function getDelete($id)
     {
         $department = Department::find($id);

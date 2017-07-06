@@ -23,7 +23,7 @@ Route::get('staff/login','LoginController@getLoginStaff')->name('staffLogin');
 Route::post('staff/login','LoginController@postLoginStaff');
 Route::get('staff/logout','LoginController@getLogoutStaff');
 
-Route::post('password/email', 'Auth\ForgotPasswordController@getResetToken');
+//Route::post('password/email', 'Auth\ForgotPasswordController@getResetToken');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
 
@@ -79,4 +79,5 @@ Route::post('changepassword/{id}','LoginController@postChangePassword');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/reset_gr', 'SendGroupMailController@index');
+Route::post('/reset_gr', 'SendGroupMailController@resetGroupPassword');

@@ -11,12 +11,18 @@ use Illuminate\Support\Facades\Auth;
 
 class StaffController extends Controller
 {
+    /*
+     * Admin get all staff
+     */
     public function getList()
     {
         $staff = Staff::all();
     	return view('admin.staff.list',['staff' => $staff]);
     }
     
+    /*
+     * Admin get staff with id for edit
+     */
     public function getEdit($id)
     {   
         $staff = Staff::find($id);
@@ -25,6 +31,9 @@ class StaffController extends Controller
         return view('admin.staff.edit',['staff'=>$staff,'department'=>$department,'position'=>$position]);
     }
     
+    /*
+     * Admin edit staff with id
+     */
     public function postEdit(Request $request,$id)
     {
     	$this->validate($request,
@@ -61,6 +70,9 @@ class StaffController extends Controller
         return redirect('admin/staff/edit/'.$id)->with('notification','Edit completed');
     }
     
+    /*
+     * Admin get view for add staff
+     */
     public function getAdd()
     {
         $department = Department::all();
@@ -68,6 +80,9 @@ class StaffController extends Controller
     	return view('admin.staff.add',['department'=>$department,'position'=>$position]);
     }
     
+    /*
+     * Admin add staff  
+     */
     public function postAdd(Request $request)
     {
         
@@ -105,6 +120,9 @@ class StaffController extends Controller
         return redirect('admin/staff/add')->with('notification','You have successfully added the user');
     }
     
+    /*
+     * Admin get staff by id for deletion
+     */
     public function getDelete($id)
     {
     	$staff = Staff::find($id);
@@ -112,17 +130,26 @@ class StaffController extends Controller
         return redirect('admin/staff/list')->with('notification','Delete completed');
     }
     
+    /*
+     * User : Get information for view
+     */
     public function getView($id)
     {
         $staff = Staff::find($id);
-        $position = Position::find($staff->id_position);
-        if($position->name_position == "Trưởng phòng"){
-        $listStaff = Staff::where('id_department',$staff->id_department)->where('id_position','!=',$staff->id_position)->get();
-        return view('staff.view',['staff'=>$staff,'listStaff'=>$listStaff]);
+        if(!empty($staff->id_position)) {
+            $position = Position::find($staff->id_position);
+            if($position->name_position == "Trưởng phòng"){
+                $listStaff = Staff::where('id_department',$staff->id_department)->where('id_position','!=',$staff->id_position)->get();
+                return view('staff.view',['staff'=>$staff,'listStaff'=>$listStaff]);
+            }
         }
+        
         return view('staff.view',['staff'=>$staff]);
     }
     
+    /*
+     * User get information for edit
+     */
     public function getStaffEdit($id)
     {
         if(Auth::id() == $id){
@@ -135,6 +162,9 @@ class StaffController extends Controller
         }
     }
     
+    /*
+     * User edit information
+     */
     public function postStaffEdit(Request $request,$id)
     {
         $this->validate($request,
@@ -150,6 +180,7 @@ class StaffController extends Controller
         $staff->birthday = $request->birthday;
         $staff->address = $request->address;
         $staff->sex = $request->sex;
+        $staff->country = $request->country;
         $staff->phone = $request->phone;
         if($request->changePassword == "on")
         {

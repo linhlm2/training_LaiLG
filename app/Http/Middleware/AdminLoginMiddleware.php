@@ -16,20 +16,16 @@ class AdminLoginMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::check())
-        {
+        if(Auth::check()) {
             $user = Auth::user();
-            if($user->is_admin == 1 && $user->active ==1)
-            {
+            if($user->is_admin == 1 && $user->active ==1) {
                 return $next($request);
             }
-            else
-            {
+            else {
                 return redirect('admin/login');
             }
         }
-        else
-        {
+        else {
             return redirect('admin/login');
         }
     }

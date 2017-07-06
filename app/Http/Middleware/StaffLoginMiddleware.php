@@ -16,20 +16,16 @@ class StaffLoginMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::check())
-        {
+        if(Auth::check()) {
             $user = Auth::user();
-            if($user->active ==1)
-            {
+            if($user->active == 1) {
                 return $next($request);
-            }
-            else
-            {
+            } 
+            else {
                 return redirect('staff/login');
             }
-        }
-        else
-        {
+        } 
+        else {
             return redirect('staff/login');
         }
     }

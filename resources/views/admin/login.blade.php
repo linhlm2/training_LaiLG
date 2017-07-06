@@ -54,7 +54,7 @@
                                     <input class="form-control" placeholder="Password" name="password" type="password" value="">
                                 </div>
                                 <button type="submit" class="btn btn-lg btn-success btn-block">Login</button>
-                                <button class="btn btn-lg btn-success btn-block"><a href="staff/login">Login User</a></button>
+                                <a href="staff/login" class="btn btn-lg btn-success btn-block" >Login User</a>
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
                                     Forgot Your Password?
                                 </a>

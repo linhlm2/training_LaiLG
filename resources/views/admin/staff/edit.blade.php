@@ -46,20 +46,28 @@
                             </div>
                          <div class="form-group">
                                 <label>Phòng</label>
-                                
                                 <select class="form-control" name="department" id="">
+                                    <option>{{' '}}</option>
+                                @if(!empty($staff->department))    
                                 @foreach($department as $depart)
                                     <option 
                                     @if($staff->department->id == $depart->id)
                                     {{"selected"}}
                                     @endif
                                     value="{{$depart->id}}">{{$depart->name_department}}</option>
+                                @endforeach
+                                @else
+                                    @foreach($department as $depart)
+                                    <option value="{{$depart->id}}">{{$depart->name_department}}</option>
                                     @endforeach
+                                @endif    
                                 </select>
                             </div>
                         <div class="form-group">
                                 <label>Chức vụ</label>
                                 <select class="form-control" name="position" id="">
+                                    <option>{{' '}}</option>
+                                @if(!empty($staff->position)) 
                                 @foreach($position as $pos)
                                     <option 
                                     @if($staff->position->id == $pos->id)
@@ -67,6 +75,11 @@
                                  @endif
                                     value="{{$pos->id}}">{{$pos->name_position}}</option>
                                  @endforeach
+                                 @else
+                                    @foreach($department as $depart)
+                                    <option value="{{$depart->id}}">{{$depart->name_department}}</option>
+                                    @endforeach
+                                 @endif
                                 </select>
                             </div>
                             <div class="form-group">

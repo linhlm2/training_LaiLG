@@ -14,10 +14,10 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         DB::table('position')->insert([
-            'name' => 'trưởng phòng',           
+            'name_position' => 'Trưởng phòng',           
         ]); 
         DB::table('department')->insert([
-            'name' => str_random(10),
+            'name_department' => 'Hành chính',
             'address' => str_random(30),
             'phone' => str_random(10)
         ]);
