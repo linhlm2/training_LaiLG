@@ -18,6 +18,9 @@
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                         <thead>
                             <tr align="center">
+                                <th style="width: 3%">
+                                    <input type="checkbox" id="check-all" class="flat" onClick="toggle(this)">
+                                </th>
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Email</th>
@@ -32,6 +35,7 @@
                         @foreach($staff as $st)
   
                             <tr class="odd gradeX" align="center">
+                                <td class="a-center"><input type="checkbox" class="flat resetPassword" name="table_records" value="{{$st->id}}"></td>
                                 <td>{{$st->id}}</td>
                                 <td>{{$st->name}}</td>
                                 <td>{{$st->email}}</td>
@@ -66,5 +70,51 @@
                 <!-- /.row -->
             </div>
             <!-- /.container-fluid -->
+                <button class="btn btn-info resetOk" id="reset_password" type="submit" >Reset password</button>
+            
 </div>
 @endsection
+@section('script')
+ <script>
+     function toggle(source) {
+        checkboxes = document.getElementsByName('table_records');
+        for(var i=0, n=checkboxes.length;i<n;i++) {
+        checkboxes[i].checked = source.checked;
+  }
+}
+     function getValueChecked() {
+	var selected = new Array();
+	$(document).ready(function() {
+	  $("input:checkbox[name=table_records]:checked").each(function() {
+	       selected.push($(this).val());
+	  });
+	});
+  
+}
+
+$( "#reset_password" ).click(function() {
+    
+	var selected = new Array();
+	$(document).ready(function() {
+	  $("input:checkbox[name=table_records]:checked").each(function() {
+	       selected.push($(this).val());
+	  });
+	});
+        $.ajaxSetup({
+            headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+               type:'POST',
+               url: './resetmulti',
+               //dataType: 'json',
+               data: {selected: selected},
+               success:function(rs){
+                    alert(rs);
+                }
+            });
+        
+});
+ </script>
+ @endsection  

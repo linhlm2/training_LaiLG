@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome')->name('home');
 });
 
 Route::get('admin/login','LoginController@getLoginAdmin');
@@ -79,5 +79,4 @@ Route::post('changepassword/{id}','LoginController@postChangePassword');
 
 Auth::routes();
 
-Route::get('/reset_gr', 'SendGroupMailController@index');
-Route::post('/reset_gr', 'SendGroupMailController@resetGroupPassword');
+Route::post('/resetmulti', 'ResetPasswordController@sendMail');

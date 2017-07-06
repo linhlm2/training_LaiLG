@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <title>Admin - LaiLG</title>
     <base href="{{asset('')}}">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Bootstrap Core CSS -->
     <link href="admin_asset/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
