@@ -76,8 +76,8 @@
                                     value="{{$pos->id}}">{{$pos->name_position}}</option>
                                  @endforeach
                                  @else
-                                    @foreach($department as $depart)
-                                    <option value="{{$depart->id}}">{{$depart->name_department}}</option>
+                                    @foreach($position as $pos)
+                                    <option value="{{$pos->id}}">{{$pos->name_position}}</option>
                                     @endforeach
                                  @endif
                                 </select>

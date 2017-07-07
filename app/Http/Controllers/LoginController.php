@@ -14,6 +14,9 @@ class LoginController extends Controller
      */
     public function getLoginAdmin()
     {
+        if(Auth::check()){
+            return redirect('admin/staff/list');
+        }
         return view('admin.login');
     }
     
@@ -96,6 +99,9 @@ class LoginController extends Controller
      */
     public function getLoginStaff()
     {
+        if(Auth::check()){
+            return redirect('staff/view/'. Auth::id());
+        }
         return view('staff.login');
     }
     
