@@ -4,8 +4,8 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Phòng ban
-                            <small>Thêm</small>
+                        <h1 class="page-header">{{trans('localization.department')}}
+                            <small>{{trans('localization.add')}}</small>
                         </h1>
                     </div>
                     <!-- /.col-lg-12 -->
@@ -25,15 +25,15 @@
                             </div>
                             @endif
                             <div class="form-group">
-                                <label>Phòng ban</label>
+                                <label>{{trans('localization.department')}}</label>
                                 <input class="form-control" name="name" placeholder="Enter name department" />
                             </div>
                             <div class="form-group">
-                                <label>Địa chỉ</label>
+                                <label>{{trans('localization.address')}}</label>
                                 <input class="form-control" name="address" placeholder="Enter address"  />
                             </div>
                             <div class="form-group">
-                                <label>Số điện thoại</label>
+                                <label>{{trans('localization.phone')}}</label>
                                 <input class="form-control" name="phone" placeholder="Enter phone number"  />
                             </div>
                             <button type="submit" class="btn btn-default">Add</button>

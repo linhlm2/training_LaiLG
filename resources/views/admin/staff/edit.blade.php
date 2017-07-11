@@ -5,7 +5,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Nhân viên
+                        <h1 class="page-header">{{trans('localization.staff')}} 
                             <small>{{$staff->name}}</small>
                         </h1>
                     </div>
@@ -26,7 +26,7 @@
                         <form action="admin/staff/edit/{{$staff->id}}" method="POST">
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
                             <div class="form-group">
-                                <label>Họ tên</label>
+                                <label>{{trans('localization.name')}}</label>
                                 <input class="form-control" name="name" placeholder="Enter  name" value="{{$staff->name}}" />
                             </div>
                             <div class="form-group">
@@ -35,17 +35,17 @@
                             </div>
                             <div class="form-group">
                                 <input type="checkbox" name="changePassword" id="changePassword">
-                                <label>Đổi mật khẩu</label>
+                                <label>{{trans('localization.changepass')}}</label>
                                 <input type="password"  class="form-control password" name="password" placeholder="Enter password"
                                 disabled="" />
                             </div>
                             <div class="form-group">
-                                <label>Nhập lại mật khẩu</label>
+                                <label>{{trans('localization.checkpass')}}</label>
                                 <input type="password" class="form-control password" name="passwordAgain" placeholder="Enter password" 
                                 disabled="" />
                             </div>
                          <div class="form-group">
-                                <label>Phòng</label>
+                                <label>{{trans('localization.department')}}</label>
                                 <select class="form-control" name="department" id="">
                                     <option>{{' '}}</option>
                                 @if(!empty($staff->department))    
@@ -64,7 +64,7 @@
                                 </select>
                             </div>
                         <div class="form-group">
-                                <label>Chức vụ</label>
+                                <label>{{trans('localization.position')}}</label>
                                 <select class="form-control" name="position" id="">
                                     <option>{{' '}}</option>
                                 @if(!empty($staff->position)) 
@@ -83,7 +83,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label>Phân quyền</label>
+                                <label>{{trans('localization.authority')}}</label>
                                 <label class="radio-inline">
                                     <input name="authority" value="0" 
                                     @if($staff->is_admin == 0)
@@ -100,20 +100,20 @@
                                 </label>
                             </div>
                             <div class="form-group">
-                                <label>kích hoạt</label>
+                                <label>{{trans('localization.active')}}</label>
                                 <label class="radio-inline">
                                     <input name="active" value="0" 
                                     @if($staff->active == 0)
                                     {{"checked"}}
                                     @endif
-                                     type="radio">Không kích hoạt
+                                     type="radio">{{trans('localization.no')}}
                                 </label>
                                 <label class="radio-inline">
                                     <input name="active" value="1" 
                                     @if($staff->active == 1)
                                     {{"checked"}}
                                     @endif
-                                    type="radio">Kích hoạt
+                                    type="radio">{{trans('localization.yes')}}
                                 </label>
                             </div>
                             <button type="submit" class="btn btn-default">Edit</button>

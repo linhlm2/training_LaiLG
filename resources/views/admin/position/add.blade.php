@@ -5,8 +5,8 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Chức vụ
-                            <small>Thêm</small>
+                        <h1 class="page-header">{{trans('localization.position')}}
+                            <small>{{trans('localization.add')}}</small>
                         </h1>
                     </div>
                     <!-- /.col-lg-12 -->
@@ -26,7 +26,7 @@
                         <form action="admin/position/add" method="POST">
                             <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                             <div class="form-group">
-                                <label>Tên chức vụ</label>
+                                <label>{{trans('localization.position')}}</label>
                                 <input class="form-control" name="name" placeholder="Enter name position" />
                             </div>
                             <button type="submit" class="btn btn-default">Add</button>

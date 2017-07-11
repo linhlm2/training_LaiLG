@@ -5,9 +5,10 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Nhân viên
-                            <small>Danh sách</small>
+                        <h1 class="page-header">{{trans('localization.staff')}}
+                            <small>{{trans('localization.list')}}</small><span style="float: right;"><a class="btn btn-info" href="admin/staff/add">Add</a></span>
                         </h1>
+                        
                     </div>
                     <!-- /.col-lg-12 -->
                     @if(session('notification'))
@@ -22,11 +23,11 @@
                                     <input type="checkbox" id="check-all" class="flat" onClick="toggle(this)">
                                 </th>
                                 <th>ID</th>
-                                <th>Name</th>
+                                <th>{{ trans('localization.name')}}</th>
                                 <th>Email</th>
                                 <th>Level</th>
-                                <th>Phòng ban</th>
-                                <th>Chức vụ</th>
+                                <th>{{trans('localization.department')}}</th>
+                                <th>{{trans('localization.position')}}</th>
                                 <th>Delete</th>
                                 <th>Edit</th>
                             </tr>

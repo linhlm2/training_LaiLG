@@ -5,8 +5,8 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Phòng ban
-                            <small>Danh sách</small>
+                        <h1 class="page-header">{{trans('localization.department')}}
+                            <small>{{trans('localization.list')}}</small><span style="float: right;"><a class="btn btn-info" href="admin/department/add">Add</a></span>
                         </h1>
                     </div>
                     <!-- /.col-lg-12 -->
@@ -19,9 +19,9 @@
                         <thead>
                             <tr align="center">
                                 <th>ID</th>
-                                <th>Tên</th>
-                                <th>Địa chỉ</th>
-                                <th>Số điện thoại</th>
+                                <th>{{trans('localization.name')}}</th>
+                                <th>{{trans('localization.address')}}</th>
+                                <th>{{trans('localization.phone')}}</th>
                                 <th>Delete</th>
                                 <th>Edit</th>
                             </tr>

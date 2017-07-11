@@ -5,8 +5,8 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Chức vụ
-                            <small>Danh sách</small>
+                        <h1 class="page-header">{{trans('localization.position')}}
+                            <small>{{trans('localization.list')}}</small><span style="float: right;"><a class="btn btn-info" href="admin/position/add">Add</a></span>
                         </h1>
                     </div>
                     <!-- /.col-lg-12 -->
@@ -19,7 +19,7 @@
                         <thead>
                             <tr align="center">
                                 <th>ID</th>
-                                <th>Tên</th>
+                                <th>{{trans('localization.name')}}</th>
                                 <th>Delete</th>
                                 <th>Edit</th>
                             </tr>

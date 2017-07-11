@@ -5,7 +5,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Nhân viên
+                        <h1 class="page-header">{{trans('localization.staff')}}
                             <small>{{$staff->name}}</small>
                         </h1>
                     </div>
@@ -26,35 +26,35 @@
                         <form action="staff/edit/{{$staff->id}}" method="POST">
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
                             <div class="form-group">
-                                <label>Họ tên</label>
+                                <label>{{trans('localization.name')}}</label>
                                 <input class="form-control" name="name"  value="{{$staff->name}}" readonly="" />
                             </div>
                             <div class="form-group">
-                                <label>Ngày sinh</label>
+                                <label>{{trans('localization.birthday')}}</label>
                                 <input type="date" class="form-control" name="birthday"  value="{{$staff->birthday}}" readonly="" />
                             </div>
                             <div class="form-group">
-                                <label>Quê quán</label>
+                                <label>{{trans('localization.address')}}</label>
                                 <input class="form-control" name="address"  value="{{$staff->address}}" readonly=""/>
                             </div>
                             <div class="form-group">
-                                <label>Quốc tịch</label>
+                                <label>{{trans('localization.country')}}</label>
                                 <input class="form-control" name="country" value="{{$staff->country}}" readonly="" />
                             </div>
                             <div class="form-group">
-                                <label>Giới tính</label>
+                                <label>{{trans('localization.sex')}}</label>
                                 @if($staff->sex == 0 )
                                 <div class="form-control" name="sex" 
                                     value ="0"
-                                    readonly=""/>Nữ</div>
+                                    readonly=""/>{{trans('localization.female')}}</div>
                                 @else
                                 <div class="form-control" name="sex" 
                                     value ="1"
-                                    readonly=""/>Nam</div>
+                                    readonly=""/>{{trans('localization.male')}}</div>
                                 @endif
                             </div>
                             <div class="form-group">
-                                <label>Số điện thoại</label>
+                                <label>{{trans('localization.phone')}}</label>
                                 <input class="form-control" name="phone"  value="{{$staff->phone}}" readonly=""/>
                             </div>
                             <div class="form-group">
@@ -62,7 +62,7 @@
                                 <input type="email" class="form-control" name="email" value="{{$staff->email}}" readonly="" />
                             </div>
                             <div class="form-group">
-                                <label>Phòng</label>
+                                <label>{{trans('localization.department')}}</label>
                                 <input  class="form-control" name="department"
                                         @if(!empty($staff->department))
                                         value="{{$staff->department->name_department}}"
@@ -72,7 +72,7 @@
                                         readonly="" />
                             </div>
                             <div class="form-group">
-                                <label>Chức vụ</label>
+                                <label>{{trans('localization.position')}}</label>
                                 <input  class="form-control" name="position"  
                                         @if(!empty($staff->position))
                                         value="{{$staff->position->name_position}}"
@@ -89,21 +89,21 @@
                 @if(!empty($staff->position))
                 @if($staff->position->name_position == "Trưởng phòng")
                 <div class="col-lg-12">
-                        <h1 class="page-header">Cấp dưới
-                            <small>Danh sách</small>
+                        <h1 class="page-header">{{trans('localization.lowergrade')}}
+                            <small>{{trans('localization.list')}}</small>
                         </h1>
                 </div>
                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                         <thead>
                             <tr align="center">
                                 <th>ID</th>
-                                <th>Name</th>
-                                <th>Ngày sinh</th>
-                                <th>Địa chỉ</th>
-                                <th>Giới tính</th>
-                                <th>Số điện thoại</th>
+                                <th>{{trans('localization.name')}}</th>
+                                <th>{{trans('localization.birthday')}}</th>
+                                <th>{{trans('localization.address')}}</th>
+                                <th>{{trans('localization.sex')}}</th>
+                                <th>{{trans('localization.phone')}}</th>
                                 <th>Email</th>
-                                <th>Chức vụ</th>
+                                <th>{{trans('localization.position')}}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -113,8 +113,8 @@
                                 <td><a href="staff/view/{{$list->id}}">{{$list->name}}</a></td>
                                 <td>{{$list->birthday}}</td>
                                 <td>{{$list->address}}</td>
-                                <td>@if($list->sex == 0){{"Nữ"}}
-                                    @else {{"Nam"}}
+                                <td>@if($list->sex == 0){{trans('localization.female')}}
+                                    @else {{trans('localization.male')}}
                                     @endif
                                 </td>
                                 <td>{{$list->phone}}</td>

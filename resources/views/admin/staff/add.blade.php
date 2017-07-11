@@ -5,8 +5,8 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Nhân viên
-                            <small>Thêm</small>
+                        <h1 class="page-header">{{trans('localization.staff')}}
+                            <small>{{trans('localization.add')}}</small>
                         </h1>
                     </div>
                     <!-- /.col-lg-12 -->
@@ -26,7 +26,7 @@
                         <form action="admin/staff/add" method="POST">
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
                             <div class="form-group">
-                                <label>Họ tên</label>
+                                <label>{{trans('localization.name')}}</label>
                                 <input class="form-control" name="name" placeholder="Enter name" />
                             </div>
                             <div class="form-group">
@@ -34,11 +34,11 @@
                                 <input type="email" class="form-control" name="email" placeholder="Enter email" />
                             </div>
                             <div class="form-group">
-                                <label>Mật khẩu</label>
+                                <label>{{trans('localization.password')}}</label>
                                 <input type="password" class="form-control" name="password" placeholder="Enter password" />
                             </div>
                             <div class="form-group">
-                                <label>Phòng </label>
+                                <label>{{trans('localization.department')}}</label>
                                 <select class="form-control" name="department" id="">
                                 @foreach($department as $depart)
                                     <option value="{{$depart->id}}">{{$depart->name_department}}</option>
@@ -46,7 +46,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label>Chức vụ</label>
+                                <label>{{trans('localization.position')}}</label>
                                 <select class="form-control" name="position" id="">
                                 @foreach($position as $pos)
                                     <option value="{{$pos->id}}">{{$pos->name_position}}</option>
@@ -54,7 +54,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label>Phân quyền</label>
+                                <label>{{trans('localization.authority')}}</label>
                                 <label class="radio-inline">
                                     <input name="authority" value="0" checked="" type="radio">User
                                 </label>
@@ -63,12 +63,12 @@
                                 </label>
                             </div>
                         <div class="form-group">
-                                <label>Kích hoạt</label>
+                                <label>{{trans('localization.active')}}</label>
                                 <label class="radio-inline">
-                                    <input name="active" value="0" checked="" type="radio">Chưa kịch hoạt
+                                    <input name="active" value="0" checked="" type="radio">{{trans('localization.no')}}
                                 </label>
                                 <label class="radio-inline">
-                                    <input name="active" value="1" type="radio">Kích hoạt
+                                    <input name="active" value="1" type="radio">{{trans('localization.yes')}}
                                 </label>
                             </div>
                             <button type="submit" class="btn btn-default">Add</button>

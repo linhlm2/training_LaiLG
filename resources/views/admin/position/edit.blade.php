@@ -4,7 +4,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Chức vụ
+                        <h1 class="page-header">{{trans('localization.position')}}
                             <small>{{$position->name_position}}</small>
                         </h1>
                     </div>
@@ -25,7 +25,7 @@
                             </div>
                             @endif
                             <div class="form-group">
-                                <label>Chức vụ</label>
+                                <label>{{trans('localization.position')}}</label>
                                 <input class="form-control" name="name" placeholder="Enter name position" value="{{$position->name_position}}" />
                             </div>
                             <button type="submit" class="btn btn-default">Edit</button>
