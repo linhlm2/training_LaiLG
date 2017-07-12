@@ -81,7 +81,7 @@
                                         @endif 
                                         readonly="" />
                             </div>
-                        <button class="btn btn-default"><a href="staff/edit/{{$staff->id}}">Edit</a></button>
+                        <a class="btn btn-default" href="staff/edit/{{$staff->id}}">Edit</a>
                         <form>
                     </div>
                 </div>

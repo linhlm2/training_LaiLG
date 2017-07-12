@@ -34,7 +34,7 @@
                                 <input type="date" class="form-control" name="birthday"  value="{{$staff->birthday}}"/>
                             </div>
                             <div class="form-group">
-                                <label>{{trans('localization.address')}}</label>
+                                <label>@lang('localization.address') </label>
                                 <input class="form-control" name="address"  value="{{$staff->address}}" />
                             </div>
                             <div class="form-group">

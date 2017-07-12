@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 return[
-    'name'=>'Họ và Tên',
+    'name'=>'Tên',
     'password'=>'Password',
     'changepass'=>'Đổi mật khẩu',
     'checkpass'=>'Nhập lại mật khẩu',

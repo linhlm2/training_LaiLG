@@ -8,7 +8,7 @@ use App\Position;
 use Illuminate\Mail\Mailable;
 use Mail;
 use Illuminate\Support\Facades\Auth;
-
+use App;
 class StaffController extends Controller
 {
     /*
