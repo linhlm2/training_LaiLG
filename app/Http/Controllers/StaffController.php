@@ -9,6 +9,8 @@ use Illuminate\Mail\Mailable;
 use Mail;
 use Illuminate\Support\Facades\Auth;
 use App;
+use Illuminate\Support\Facades\Session;
+
 class StaffController extends Controller
 {
     /*
@@ -143,7 +145,6 @@ class StaffController extends Controller
                 return view('staff.view',['staff'=>$staff,'listStaff'=>$listStaff]);
             }
         }
-        
         return view('staff.view',['staff'=>$staff]);
     }
     

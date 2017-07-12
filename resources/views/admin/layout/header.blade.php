@@ -9,7 +9,11 @@
                 <a class="navbar-brand">Admin Area</a>
             </div>
             <!-- /.navbar-header -->
-
+            <form class="navbar-default" style="float: right" action="language" method="post">
+                <input type="hidden" name="_token" value="{{csrf_token()}}" />
+                <button type="submit" name="locale" value="vi">vi</button>
+                <button type="submit" name="locale" value="en">en</button>
+            </form>
             <ul class="nav navbar-top-links navbar-right">
                 <!-- /.dropdown -->
                 <li class="dropdown">

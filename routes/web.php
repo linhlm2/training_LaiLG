@@ -80,3 +80,7 @@ Route::post('changepassword/{id}','LoginController@postChangePassword');
 Auth::routes();
 
 Route::post('/resetmulti', 'ResetPasswordController@sendMail');
+Route::group(['Middleware'=>['MultiLanguage']],function(){
+    Route::post('language','MultilanguageController@getLang');
+    
+});
